@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="India Invest Demo - INR investment dashboard">
+  <title>India Invest — INR Broker Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">₹</span><span>India<span>Invest</span></span></a>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#markets">Markets</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#activity">Activity</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <button class="outline-btn" id="loginBtn">Log in</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">INDIA • INR INVESTING DEMO</p>
+        <h1>Invest in India's markets with clarity.</h1>
+        <p class="hero-text">A clean demonstration brokerage dashboard for exploring stocks, funds, portfolio values and INR transactions.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#markets">Explore markets</a>
+          <button class="secondary-btn" id="openAccountBtn">Open demo account</button>
+        </div>
+        <p class="demo-note">Demo only — no real orders, deposits, withdrawals, or financial transactions are processed.</p>
+      </div>
+      <div class="hero-card">
+        <div class="card-head"><span>Demo portfolio</span><span class="pill positive">+2.84%</span></div>
+        <div class="big-number" id="heroValue">₹2,48,650</div>
+        <div class="muted">Portfolio value</div>
+        <div class="mini-chart" aria-hidden="true">
+          <span style="height:35%"></span><span style="height:45%"></span><span style="height:38%"></span>
+          <span style="height:57%"></span><span style="height:52%"></span><span style="height:70%"></span>
+          <span style="height:62%"></span><span style="height:78%"></span><span style="height:73%"></span>
+          <span style="height:92%"></span>
+        </div>
+        <div class="hero-stats"><div><b>₹6,870</b><small>Today's P&amp;L</small></div><div><b>₹48,650</b><small>Total P&amp;L</small></div></div>
+      </div>
+    </section>
+
+    <section class="ticker">
+      <div><b>NIFTY 50</b><span class="positive">24,890.10 ▲ 0.74%</span></div>
+      <div><b>SENSEX</b><span class="positive">81,420.32 ▲ 0.61%</span></div>
+      <div><b>NIFTY BANK</b><span class="negative">54,120.45 ▼ 0.18%</span></div>
+      <div><b>USD/INR</b><span>₹83.15</span></div>
+    </section>
+
+    <section id="markets" class="section">
+      <div class="section-head">
+        <div><p class="eyebrow">MARKET WATCH</p><h2>Popular Indian stocks</h2></div>
+        <div class="search-wrap"><input id="stockSearch" type="search" placeholder="Search stocks..." aria-label="Search stocks"></div>
+      </div>
+      <div class="table-card">
+        <div class="table-row table-head"><span>Company</span><span>Price</span><span>Change</span><span></span></div>
+        <div id="stockList"></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section">
+      <div class="section-head">
+        <div><p class="eyebrow">YOUR ACCOUNT</p><h2>Portfolio overview</h2></div>
+        <button class="primary-btn" id="addHoldingBtn">Add demo holding</button>
+      </div>
+      <div class="dashboard-grid">
+        <div class="stat-card"><span>Available cash</span><strong id="cashValue">₹1,25,000</strong><small>Demo balance</small></div>
+        <div class="stat-card"><span>Invested</span><strong id="investedValue">₹1,23,650</strong><small>Demo holdings</small></div>
+        <div class="stat-card"><span>Today's P&amp;L</span><strong class="positive">+₹6,870</strong><small>+2.84%</small></div>
+      </div>
+      <div class="holdings-card">
+        <div class="table-row table-head"><span>Holding</span><span>Qty.</span><span>Avg. price</span><span>Value</span></div>
+        <div id="holdingList"></div>
+      </div>
+    </section>
+
+    <section id="activity" class="section">
+      <div class="section-head"><div><p class="eyebrow">ACCOUNT ACTIVITY</p><h2>Recent transactions</h2></div></div>
+      <div class="activity-card" id="activityList"></div>
+    </section>
+
+    <section class="cta">
+      <div><p class="eyebrow">READY TO EXPLORE?</p><h2>Build your demo portfolio in INR.</h2><p>Use the buttons above to explore a realistic-looking investment interface without moving real money.</p></div>
+      <button class="primary-btn" id="ctaBtn">Start demo</button>
+    </section>
+  </main>
+
+  <footer>
+    <div><a class="brand" href="#home"><span class="brand-mark">₹</span><span>India<span>Invest</span></span></a><p>Independent demonstration interface. Not a real broker.</p></div>
+    <div class="footer-links"><a href="#markets">Markets</a><a href="#portfolio">Portfolio</a><a href="#activity">Activity</a></div>
+    <p class="copyright">© 2026 IndiaInvest Demo</p>
+  </footer>
+
+  <div class="modal hidden" id="tradeModal">
+    <div class="modal-box">
+      <button class="close" id="closeModal">×</button>
+      <p class="eyebrow">DEMO ORDER</p>
+      <h2 id="modalTitle">Buy stock</h2>
+      <p class="muted" id="modalPrice"></p>
+      <label>Quantity<input id="qtyInput" type="number" min="1" value="1"></label>
+      <div class="order-total"><span>Estimated total</span><b id="orderTotal">₹0</b></div>
+      <button class="primary-btn full" id="confirmTrade">Confirm demo order</button>
+      <p class="tiny">This button only changes the demo interface. No real trade is submitted.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
